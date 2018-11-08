@@ -1,5 +1,6 @@
 import React from 'react'
 import MonsterCard from './MonsterCard'
+import GameController from './GameController'
 import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 
 class Menu extends React.Component {
@@ -20,20 +21,18 @@ class Menu extends React.Component {
         </Grid.Row>
 
         <Grid.Row>
-          <Grid.Column width={5}>
-            <Segment style={{overflow: 'auto', maxHeight: 200 }}>
-              {this.props.monsters.map(monster => <MonsterCard monster={monster}/>)}
-
-            </Segment>
-
+          <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={5}>
+            {this.props.monsters.map(monster => <MonsterCard monster={monster}/>)}
           </Grid.Column>
-          <Grid.Column width={10}>
+          <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
+            <GameController/>
 
           </Grid.Column>
           <Grid.Column width={3}>
             <Image src='/images/wireframe/image.png' />
           </Grid.Column>
         </Grid.Row>
+
       </Grid>
     )
   }

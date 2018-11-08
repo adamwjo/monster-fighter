@@ -10,10 +10,10 @@ Monster.destroy_all
 Move.destroy_all
 Monstermove.destroy_all
 
-user1 = User.create(username: "Bot")
-user2 = User.create(username: "Marcos")
-user3 = User.create(username: "bigskadoot")
-user4 = User.create(username: "Team Reboot")
+user1 = User.create(username: "Bot", password: "BotSpot1")
+user2 = User.create(username: "Marcos", password: "password1")
+user3 = User.create(username: "bigskadoot", password: "password1")
+user4 = User.create(username: "Team Reboot", password: "password1")
 
 
 monster1 = Monster.create(name: "Reige", description: "Quick move by firm legs.", hp: 40, img: "https://wiki.telefang.net/images/4/4e/T1-085.gif", user: user1)

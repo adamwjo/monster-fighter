@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../css/Arena.css'
 
 export default class Arena extends Component {
   constructor(props){
@@ -6,15 +7,14 @@ export default class Arena extends Component {
     this.state = {
       turnCount: 0,
       currentTurn: null,
+      background: this.props.background
     }
   }
   render() {
     return (
-      <span style={this.props.background}></span>
+      <div className='arena'>
+        <p>This is where monsters do battle</p>
+      </div>
     )
   }
-}
-
-Arena.defaultProps = {
-  background: require(`../img/default.png`)
 }

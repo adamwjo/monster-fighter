@@ -1,6 +1,9 @@
 class MonstersController < ApplicationController
   def index
     @monsters = Monster.all
-    render json: @monsters.to_json
+    render(
+      json: @monsters,
+      each_serializer: MonsterSerializer
+    )
   end
 end

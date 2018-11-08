@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from './components/Nav'
 import Adapter from './Adapter'
 import Arena from './components/Arena'
+import Menu from './components/Menu'
 
 
 class Game extends Component {
@@ -29,7 +30,9 @@ class Game extends Component {
   render() {
     return (
       <div className="Game">
+        <Nav />
         <Arena />
+        <Menu monsters={this.state.monsters}/>
       </div>
     );
   }

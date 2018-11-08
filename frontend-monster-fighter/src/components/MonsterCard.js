@@ -12,7 +12,7 @@ export default class MonsterCard extends Component {
 
         <Card>
           <Card.Content>
-            <Image floated="right" size="mini" src={this.props.monster.img} />
+            <Image floated="right"  src={this.props.monster.img} />
             <Card.Header>{this.props.monster.name}</Card.Header>
             <Card.Meta>Player Monster</Card.Meta>
             <Card.Description>{this.props.monster.description}</Card.Description>

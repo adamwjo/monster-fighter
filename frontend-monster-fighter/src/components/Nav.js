@@ -10,7 +10,7 @@ export default class MenuExampleBasic extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu>
+      <Menu color='yellow'>
         <Menu.Item
           name='Start a Game'
           active={activeItem === 'Start a Game'}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Container, Header} from 'semantic-ui-react'
 import '../css/Arena.css'
 
 export default class Arena extends Component {
@@ -12,9 +13,11 @@ export default class Arena extends Component {
   }
   render() {
     return (
-      <div className='arena'>
-        <p>This is where monsters do battle</p>
-      </div>
+      <Container fluid>
+        <div className='arena'>
+          <Header as="h3">This is where monsters do battle</Header>
+        </div>
+      </Container>
     )
   }
 }

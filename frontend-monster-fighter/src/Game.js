@@ -13,7 +13,8 @@ class Game extends Component {
     this.state = {
       users: [],
       moves: [],
-      monsters: []
+      monsters: [],
+      loaded: false
     }
   }
 
@@ -22,19 +23,26 @@ class Game extends Component {
     // Invoke rails s -p 3001 in backend to run on correct port
     const adapter = new Adapter("http://localhost:3001")
 
-    adapter.getAll("/users").then(allUsers => this.setState({users: allUsers}))
     adapter.getAll("/monsters").then(allMonsters => this.setState({monsters: allMonsters}))
+    adapter.getAll("/users").then(allUsers => this.setState({users: allUsers}))
     adapter.getAll("/moves").then(allMoves => this.setState({moves: allMoves}))
+    this.setState({loaded: true})
   }
 
   render() {
-    return (
-      <div className="Game">
-        <Nav />
-        <Arena />
-        <Menu monsters={this.state.monsters}/>
-      </div>
-    );
+    if (this.state.loaded === true) {
+      return (
+
+        <div className="Game">
+          <Nav />
+          <Arena enemy={this.state.monsters[1]} monsters={this.state.monsters} />
+          <Menu moves={this.state.moves} monsters={this.state.monsters}/>
+        </div>
+      )
+    }
+    else {
+       return null
+    }
   }
 }
 

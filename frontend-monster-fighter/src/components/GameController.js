@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { Grid, Menu, Segment } from 'semantic-ui-react'
+import MovesMenu from './MovesMenu'
+import StatsMenu from './StatsMenu'
 
 export default class GameController extends Component {
-  state = { activeItem: 'bio' }
+  constructor(){
+    super()
+    this.state = { activeItem: 'Moves' }
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -13,17 +18,17 @@ export default class GameController extends Component {
       <Grid>
         <Grid.Column stretched width={12}>
           <Segment>
-            This is an stretched grid column. This segment will always match the tab height
+            {this.state.activeItem === 'Moves'? <MovesMenu moves={this.props.moves}/> : null}
+            {this.state.activeItem === 'Stats'? <StatsMenu/> : null }
           </Segment>
         </Grid.Column>
 
         <Grid.Column width={4}>
           <Menu fluid vertical tabular='right'>
-            <Menu.Item name='bio' active={activeItem === 'bio'} onClick={this.handleItemClick} />
-            <Menu.Item name='pics' active={activeItem === 'pics'} onClick={this.handleItemClick} />
+            <Menu.Item name='Moves' active={activeItem === 'Moves'} onClick={this.handleItemClick} />
             <Menu.Item
-              name='companies'
-              active={activeItem === 'companies'}
+              name='Stats'
+              active={activeItem === 'Stats'}
               onClick={this.handleItemClick}
             />
             <Menu.Item

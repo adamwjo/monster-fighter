@@ -3,11 +3,9 @@ import { Card, Icon, Image, Container } from 'semantic-ui-react'
 
 export default class MonsterCard extends Component {
 
-  constructor(props){
-    super(props)
-  }
 
   render(){
+    console.log(this.props);
     return(
 
         <Card>

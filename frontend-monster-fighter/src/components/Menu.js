@@ -13,10 +13,10 @@ class Menu extends React.Component {
       <Grid celled>
         <Grid.Row>
           <Grid.Column width={3}>
-            <Image src='/images/wireframe/image.png' />
+            Monster Hp
           </Grid.Column>
           <Grid.Column width={13}>
-            <Image src='/images/wireframe/centered-paragraph.png' />
+            Current move being used
           </Grid.Column>
         </Grid.Row>
 
@@ -25,11 +25,11 @@ class Menu extends React.Component {
             {this.props.monsters.map(monster => <MonsterCard monster={monster}/>)}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
-            <GameController/>
+            <GameController moves={this.props.moves}/>
 
           </Grid.Column>
           <Grid.Column width={3}>
-            <Image src='/images/wireframe/image.png' />
+            additional info
           </Grid.Column>
         </Grid.Row>
 

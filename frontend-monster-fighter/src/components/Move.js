@@ -3,7 +3,6 @@ import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 
 const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 const Move = (props) => {
-  console.log(props);
   return(
     <Item>
       <Item.Image src={props.move.img} />

@@ -6,7 +6,19 @@ import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 class Menu extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      selectedMonster: null
+    }
   }
+
+  selectMonsterhandler = (monster) => {
+    console.log(`you clicked monster ${monster.name}`, monster.moves)
+    this.setState({
+      selectedMonster: monster
+    })
+  }
+
+
 
   render(){
     return(
@@ -22,10 +34,11 @@ class Menu extends React.Component {
 
         <Grid.Row>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={5}>
-            {this.props.monsters.map(monster => <MonsterCard monster={monster}/>)}
+            {this.props.monsters.map(monster => <MonsterCard selectMonster={this.selectMonsterhandler} key={monster.id} monster={monster}/>)}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
-            <GameController moves={this.props.moves}/>
+            {this.state.selectedMonster === null ? null : <GameController  moves={this.state.selectedMonster.moves}/>}
+
 
           </Grid.Column>
           <Grid.Column width={3}>

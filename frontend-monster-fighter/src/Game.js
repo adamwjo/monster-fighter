@@ -26,7 +26,15 @@ class Game extends Component {
     adapter.getAll("/monsters").then(allMonsters => this.setState({monsters: allMonsters}))
     adapter.getAll("/users").then(allUsers => this.setState({users: allUsers}))
     adapter.getAll("/moves").then(allMoves => this.setState({moves: allMoves}))
+    .then()
     this.setState({loaded: true})
+  }
+
+  selectMonsterhandler = (monster) => {
+    console.log(`you clicked monster ${monster.name}`, monster.moves)
+    this.setState({
+      selectedMonster: monster
+    })
   }
 
   render() {
@@ -36,7 +44,7 @@ class Game extends Component {
         <div className="Game">
           <Nav />
           <Arena enemy={this.state.monsters[1]} monsters={this.state.monsters} />
-          <Menu moves={this.state.moves} monsters={this.state.monsters}/>
+          <Menu currentMonster={this.state.selectedMonster} moves={this.state.moves} monsters={this.state.monsters}/>
         </div>
       )
     }

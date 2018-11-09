@@ -18,7 +18,6 @@ export default class Arena extends Component {
 
 
   render() {
-    console.log("in arena render", this.props.enemy);
     return (
       <div className='arena'>
         <Container fluid>

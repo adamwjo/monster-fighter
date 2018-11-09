@@ -3,10 +3,12 @@ import { Grid, Menu, Segment } from 'semantic-ui-react'
 import MovesMenu from './MovesMenu'
 import StatsMenu from './StatsMenu'
 
-export default class GameController extends Component {
+class GameController extends Component {
   constructor(){
     super()
-    this.state = { activeItem: 'Moves' }
+    this.state = { 
+      activeItem: 'Moves'
+    }
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -42,3 +44,5 @@ export default class GameController extends Component {
     )
   }
 }
+
+export default GameController

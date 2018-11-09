@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 
-export default class MenuExampleBasic extends Component {
+export default class Nav extends Component {
   state = {}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -10,7 +10,7 @@ export default class MenuExampleBasic extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu style={{color :"red"}}>
+      <Menu >
         <Menu.Item
           name='Start a Game'
           active={activeItem === 'Start a Game'}

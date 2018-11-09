@@ -32,12 +32,12 @@ monster11 = Monster.create(name: "Armgrab", description: "Grasp by claw, attack 
 
 move1 = Move.create(name: "Flippy Kick", lowDmg: 10, highDmg: 15, description: "Do a flip. Then a kick. Then another flip.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
 move2 = Move.create(name: "One Paaaanch", lowDmg: 1, highDmg: 40, description: "Be a HERO!", img:"https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/d/d9/HW_Magical_Rod.png?version=61720ae97140eb31280aa6051bd81714")
-move3 = Move.create(name: "Halitosis Breath", lowDmg: 5, highDmg: 25, description: "Breath deep of my essence")
-move4 = Move.create(name: "Splash", lowDmg: 1, highDmg: 2, description: "Karp Karp Karp")
-move5 = Move.create(name: "Irradiate", lowDmg: 20, highDmg: 30, description: "Fight dirty. Split atoms then split lips.")
-move6 = Move.create(name: "Report to the Constabulary", lowDmg: 15, highDmg: 25, description: "Call the popo cuz you a punk snitch")
-move7 = Move.create(name: "Freezy Blasty Sticky Ray", lowDmg: 20, highDmg: 25, description: "Created by a senile supergenius. You're not sure how it works.")
-move8 = Move.create(name: "Gaze of Mild Disapproval", lowDmg: 15, highDmg: 15, description: "*disapproval personified*")
+move3 = Move.create(name: "Halitosis Breath", lowDmg: 5, highDmg: 25, description: "Breath deep of my essence", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
+move4 = Move.create(name: "Splash", lowDmg: 1, highDmg: 2, description: "Karp Karp Karp", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
+move5 = Move.create(name: "Irradiate", lowDmg: 20, highDmg: 30, description: "Fight dirty. Split atoms then split lips.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
+move6 = Move.create(name: "Report to the Constabulary", lowDmg: 15, highDmg: 25, description: "Call the popo cuz you a punk snitch", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
+move7 = Move.create(name: "Freezy Blasty Sticky Ray", lowDmg: 20, highDmg: 25, description: "Created by a senile supergenius. You're not sure how it works.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
+move8 = Move.create(name: "Gaze of Mild Disapproval", lowDmg: 15, highDmg: 15, description: "*disapproval personified*", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
 
 
 30.times do

@@ -6,9 +6,9 @@ const Move = (props) => {
   console.log(props);
   return(
     <Item>
+      <Item.Image src={props.move.img} />
 
       <Item.Content>
-        <Item.Image src={props.move.img} />
         <Item.Header as='a'>{props.move.name}</Item.Header>
         <Item.Meta>
           <span className='cinema'>Dmg: {props.move.lowDmg}</span>

@@ -1,6 +1,8 @@
 import React from 'react'
 import MonsterCard from './MonsterCard'
 import GameController from './GameController'
+import NewMonsterForm from './NewMonsterForm'
+
 import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 
 class Menu extends React.Component {
@@ -9,6 +11,7 @@ class Menu extends React.Component {
     this.state = {
       selectedMonster: null
     }
+
   }
 
   selectMonsterhandler = (monster) => {
@@ -44,6 +47,11 @@ class Menu extends React.Component {
           <Grid.Column width={3}>
             additional info
           </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+          {this.props.moves.length === 0 ? null : <NewMonsterForm moves={this.props.moves}/> }
+
         </Grid.Row>
 
       </Grid>

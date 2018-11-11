@@ -37,12 +37,16 @@ class Game extends Component {
     })
   }
 
+  submitMonster = (event) => {
+    console.log(event)
+  }
+
   render() {
     if (this.state.loaded === true) {
       return (
 
         <div className="Game">
-          <Nav />
+          <Nav submitMonster={this.submitMonster} />
           <Arena enemy={this.state.monsters[1]} monsters={this.state.monsters} />
           <Menu currentMonster={this.state.selectedMonster} moves={this.state.moves} monsters={this.state.monsters}/>
         </div>

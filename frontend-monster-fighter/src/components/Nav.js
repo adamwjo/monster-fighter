@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button, Header, Image, Form, Checkbox, Dropdown, Segment} from 'semantic-ui-react'
+import newMonsterForm from './newMonsterForm'
 
 export default class Nav extends Component {
   state = {}
@@ -19,8 +20,8 @@ export default class Nav extends Component {
           Start a Game
         </Menu.Item>
 
-        <Menu.Item name='Create a Character' active={activeItem === 'Create a Character'} onClick={this.handleItemClick}>
-          Create a Character
+        <Menu.Item active={activeItem === 'Create a Character'} onClick={this.handleItemClick}>
+          Create a Monster
         </Menu.Item>
 
         <Menu.Item
@@ -29,6 +30,7 @@ export default class Nav extends Component {
           onClick={this.handleItemClick}
         >
           View Profile
+
         </Menu.Item>
       </Menu>
     )

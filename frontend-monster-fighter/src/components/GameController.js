@@ -6,7 +6,7 @@ import StatsMenu from './StatsMenu'
 class GameController extends Component {
   constructor(){
     super()
-    this.state = { 
+    this.state = {
       activeItem: 'Moves'
     }
   }

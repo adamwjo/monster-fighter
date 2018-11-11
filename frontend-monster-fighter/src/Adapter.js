@@ -8,15 +8,6 @@ export default class Adapter {
       .then(res => res.json())
   }
 
-  login(token) {
-    return fetch(`${this.BASE_URL}/login`, {
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-  }
-
   post(endpoint, body) {
     return fetch(`${this.BASE_URL}/${endpoint}`, {
       method: "POST",

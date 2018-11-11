@@ -4,7 +4,6 @@ import Adapter from './Adapter'
 import Arena from './components/Arena'
 import Menu from './components/Menu'
 
-
 class Game extends Component {
 
   constructor() {
@@ -31,13 +30,6 @@ class Game extends Component {
   ]).then(this.setState({loaded: true}))
   }
 
-  selectMonsterhandler = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
-    this.setState({
-      selectedMonster: monster
-    })
-  }
-
   useMove = (event) => {
     console.log(`you used ${event.target.value.name}`)
   }
@@ -46,14 +38,22 @@ class Game extends Component {
     return Math.round(Math.random() * (high - low) + low)
   }
 
+  filterMonsters = (type) => {
+    if (type === 'fighter') {
+      return this.state.monsters.filter(monster => monster.user.id !== 1)
+    }
+    if (type === 'enemy') {
+      return this.state.monsters.filter(monster => monster.user.id === 1)
+    }
+  }
+
   render() {
     if (this.state.loaded === true) {
       return (
-
         <div className="Game">
           <Nav />
-          <Arena enemy={this.state.monsters[1]} monsters={this.state.monsters} />
-          <Menu currentMonster={this.state.selectedMonster} moves={this.state.moves} monsters={this.state.monsters}/>
+          <Arena enemies={this.filterMonsters('enemy')} fighters={this.filterMonsters('fighter')} />
+          <Menu moves={this.state.moves} enemies={this.filterMonsters('enemy')} fighters={this.filterMonsters('fighter')}/>
         </div>
       )
     }

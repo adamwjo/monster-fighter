@@ -21,7 +21,6 @@ export default class MonsterCard extends Component {
             </a>
           </Card.Content>
         </Card>
-
       )
   }
 }

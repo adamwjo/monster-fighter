@@ -6,7 +6,7 @@ import StatsMenu from './StatsMenu'
 class GameController extends Component {
   constructor(){
     super()
-    this.state = { 
+    this.state = {
       activeItem: 'Moves'
     }
   }
@@ -20,8 +20,9 @@ class GameController extends Component {
       <Grid>
         <Grid.Column stretched width={12}>
           <Segment>
-            {this.state.activeItem === 'Moves'? <MovesMenu moves={this.props.moves}/> : null}
-            {this.state.activeItem === 'Stats'? <StatsMenu/> : null }
+            {this.state.activeItem === 'Moves'? <MovesMenu moves={this.props.fighter.moves}/> : null}
+            {this.state.activeItem === 'Stats'? <StatsMenu fighter={this.props.fighter} /> : null }
+  
           </Segment>
         </Grid.Column>
 

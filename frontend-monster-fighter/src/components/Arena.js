@@ -7,39 +7,54 @@ export default class Arena extends Component {
   constructor(props){
     super(props)
     this.state = {
-      playerMonster: [],
-      enemyMonster: [],
+      playerMonster: null,
+      enemyMonster: null,
       turnCount: 0,
       currentTurn: null,
-      background: ['b-caves', 'b-cityscape', 'b-default', 'b-dusk-meadow', 'b-lava-temple', 'b-mountains', 'b-retro-mountains', 'b-seaside-caves', 'b-timezone-split']
+      loaded: false,
+      backgrounds: ['b-caves', 'b-cityscape', 'b-default', 'b-dusk-meadow', 'b-lava-temple', 'b-mountains', 'b-retro-mountains', 'b-seaside-caves', 'b-timezone-split']
     }
   }
 
-  selectBackground = () => {
-    const len = this.state.background.length
-    const sample = Math.floor(Math.random() * len)
-    return this.state.background[sample]
+  componentDidMount() {
+    this.selectEnemy()
+    this.setState({loaded: true})
   }
 
+  selectBackground = () => {
+    const len = this.state.backgrounds.length
+    const sample = Math.floor(Math.random() * len)
+    return this.state.backgrounds[sample]
+  }
 
+  selectEnemy = () => {
+    const len = this.props.enemies.length
+    const sample = Math.floor(Math.random() * len)
+    this.setState({enemyMonster: this.props.enemies[sample]})
+  }
 
   render() {
-    return (
-      <div className='arena' id={`${this.selectBackground()}`}>
-        <Container fluid>
-          <Grid celled>
+    if (this.state.loaded === true) {
+      return (
+        <div className='arena' id={`${this.selectBackground()}`}>
+          <Container fluid>
+            <Grid celled>
 
-            <Grid.Column width={8} >
-              PLayer
-            </Grid.Column>
+              <Grid.Column width={8} >
+                Player
+              </Grid.Column>
 
-            <Grid.Column width={8} >
-              {this.props.enemy === undefined ? null : <MonsterCard monster={this.props.enemy}/>}
+              <Grid.Column width={8} >
+                {this.props.enemyMonster === undefined ? null : <MonsterCard monster={this.state.enemyMonster}/>}
 
-            </Grid.Column>
-          </Grid>
-        </Container>
-      </div>
-    )
+              </Grid.Column>
+            </Grid>
+          </Container>
+        </div>
+      )
+    }
+    else {
+      return null
+    }
   }
 }

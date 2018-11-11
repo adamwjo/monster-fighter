@@ -10,12 +10,11 @@ const Move = (props) => {
       <Item.Content>
         <Item.Header as='a'>{props.move.name}</Item.Header>
         <Item.Meta>
-          <span className='cinema'>Dmg: {props.move.lowDmg}</span>
+          <span className='cinema'>Dmg: {props.move.lowDmg} - {props.move.highDmg}</span>
         </Item.Meta>
         <Item.Description>{props.move.description}</Item.Description>
         <Item.Extra>
           <Label>Select</Label>
-
         </Item.Extra>
       </Item.Content>
     </Item>

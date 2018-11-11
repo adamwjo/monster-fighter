@@ -7,17 +7,16 @@ class Menu extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      selectedMonster: null
+      selectedFighter: null
     }
   }
 
   selectMonsterhandler = (monster) => {
     console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
-      selectedMonster: monster
+      selectedFighter: monster
     })
   }
-
 
 
   render(){
@@ -34,15 +33,13 @@ class Menu extends React.Component {
 
         <Grid.Row>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={5}>
-            {this.props.monsters.map(monster => <MonsterCard selectMonster={this.selectMonsterhandler} key={monster.id} monster={monster}/>)}
+            {this.props.fighters.map(monster => <MonsterCard selectMonster={this.selectMonsterhandler} key={monster.id} monster={monster}/>)}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
-            {this.state.selectedMonster === null ? null : <GameController  moves={this.state.selectedMonster.moves}/>}
-
-
+            {this.state.selectedFighter === null ? null : <GameController  fighter={this.state.selectedFighter}/>}
           </Grid.Column>
-          <Grid.Column width={3}>
-            additional info
+          <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={3}>
+            {this.props.enemies.map(monster => <MonsterCard selectMonster={()=>{}} key={monster.id} monster={monster} />)}
           </Grid.Column>
         </Grid.Row>
 

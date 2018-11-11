@@ -27,34 +27,44 @@ monster8 = Monster.create(name: "Gymgarth", description: "It can use its hammer 
 monster9 = Monster.create(name: "Punica", description: "Hey, hey, 'Bucket' is the word in Punica's riddle", hp: 40, img: "https://wiki.telefang.net/images/a/a0/T1-009.gif", user: user3)
 monster10 = Monster.create(name: "Raygirth", description: "If angered, it raises up its fins, intimidating its opponents, then attacks as they recoil.", hp: 50, img: "https://wiki.telefang.net/images/d/db/T1-057.gif", user: user3)
 monster11 = Monster.create(name: "Armgrab", description: "Grasp by claw, attack by Sabre.", hp: 60, img: "https://wiki.telefang.net/images/8/88/T1-075.gif", user: user3)
+monster12 = Monster.create(name: "Brunomon", description: "When you stare into the abyss long enough, the abyss stares back.", hp: 200, img: "https://i.imgur.com/xlKHOah.png", user: user1)
 
 
 
-move1 = Move.create(name: "Flippy Kick", lowDmg: 10, highDmg: 15, description: "Do a flip. Then a kick. Then another flip.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/9/9b/HW_Power_Gloves.png?version=7e7cdcfa348b3f8be527cad6b48d23fe")
 
-move2 = Move.create(name: "One Paaaanch", lowDmg: 1, highDmg: 40, description: "Be a HERO!", img:"https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/d/d9/HW_Magical_Rod.png?version=61720ae97140eb31280aa6051bd81714")
+move1 = Move.create(name: "Flippy Kick", lowDmg: 10, highDmg: 15, description: "Do a flip. Then a kick. Then another flip.", img: "https://images.vexels.com/media/users/3/129274/isolated/preview/32c4ae2adb446f081c496e8dd015c594-backflip-silhouette-by-vexels.png")
 
-move3 = Move.create(name: "Halitosis Breath", lowDmg: 5, highDmg: 25, description: "Breath deep of my essence", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/c/c1/HW_Mirror_of_Silence.png?version=6cc6a6f4223a9eb7d1eb6d0e542f1084")
+move2 = Move.create(name: "One Paaaanch", lowDmg: 1, highDmg: 40, description: "Be a HERO!", img:"https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/5ab122ad6d2a73ff3ab81da3/1521558191830/one_punch_man.jpg?format=2500w")
 
-move4 = Move.create(name: "Splash", lowDmg: 1, highDmg: 2, description: "Karp Karp Karp", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/1/11/HWL_CharSelect_21.png?version=11793eaae25623c82981dc4f8bbb3626")
+move3 = Move.create(name: "Halitosis Breath", lowDmg: 5, highDmg: 25, description: "Breath deep of my essence", img: "https://media1.tenor.com/images/1da1875014215517803948327b33f2cf/tenor.gif?itemid=4198167")
 
-move5 = Move.create(name: "Irradiate", lowDmg: 20, highDmg: 30, description: "Fight dirty. Split atoms then split lips.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/8/8e/HWS_Lunar_Ocarina_Icon.png?version=893a5aaecde22298a1c828b661760af3")
+move4 = Move.create(name: "Splash", lowDmg: 1, highDmg: 2, description: "Karp Karp Karp", img: "https://d.facdn.net/art/archir/1445267469/1445237825.archir_magikarp_used_splash_by_ruth_tay-d7pgrvksmall.jpg")
 
-move6 = Move.create(name: "Report to the Constabulary", lowDmg: 15, highDmg: 25, description: "Call the popo cuz you a punk snitch", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/1/17/HW_Scimitars_of_Twilight_Icon.png?version=4ca401998c4f7d852391cca31044c8d8")
+move5 = Move.create(name: "Irradiate", lowDmg: 20, highDmg: 30, description: "Fight dirty. Split atoms. Then split lips.", img: "https://www.maxpixel.net/static/photo/1x/Light-Beam-Green-Plays-Of-Light-Laser-Laser-Beams-1757807.jpg")
 
-move7 = Move.create(name: "Freezy Blasty Sticky Ray", lowDmg: 20, highDmg: 25, description: "Created by a senile supergenius. You're not sure how it works.", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/d/d6/HWS_Wavelet_Bell_Icon.png?version=6c792ce4cf845ff7c5e7a8fa4493adab")
+move6 = Move.create(name: "Report to the Constabulary", lowDmg: 15, highDmg: 25, description: "I say, unhand me foul monster, or face my barrister", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQip2vo4kOTO940lxluxQAL3t3H1ocrZzzzmhV_Pd0tdbQrDPod")
 
-move8 = Move.create(name: "Gaze of Mild Disapproval", lowDmg: 15, highDmg: 15, description: "*disapproval personified*", img: "https://d1u5p3l4wpay3k.cloudfront.net/zelda_gamepedia_en/1/12/HW_Mr._Fairy_Balloon.png?version=4183febfff9886f0efb5e1b4030dc539")
+move7 = Move.create(name: "Freezy Blasty Sticky Ray", lowDmg: 20, highDmg: 25, description: "Created by a senile supergenius. You're not sure how it works.", img: "http://www.weaponreplica.com/wp-content/uploads/2012/04/Dr-Grordborts-Righteous-Bison-Ray-Gun-Replica.jpg")
+
+move8 = Move.create(name: "Gaze of Mild Disapproval", lowDmg: 15, highDmg: 15, description: "*disapproval personified*", img: "http://nanoict.org/wp-content/uploads/2018/10/batman-slapping-robin-memes-funny-batman-memes-and-pictures-4.jpg")
+
+move9 = Move.create(name: "Super Smash", lowDmg:20 , highDmg: 20, description: "Smash Ultimate, now with playable Hello Kitty character", img: "https://sanrio-production-weblinc.netdna-ssl.com/media/W1siZiIsIjIwMTYvMDYvMTQvMjAvNDgvMzQvMTM3L2NocmFjdGVyX2hlbGxvX2tpdHR5LmpwZyJdLFsicCIsIm9wdGltIl1d/chracter-hello-kitty.jpg?sha=bb1658addec8d1b7")
+
+move10 = Move.create(name: "La Chancla", lowDmg: 5, highDmg: 10, description: "Estas a punto de ser batido", img: "https://banner2.kisspng.com/20180203/rkq/kisspng-slipper-flip-flops-sandal-clip-art-sandals-cliparts-5a75c9a7850666.8156695015176687755449.jpg")
+
+move11 = Move.create(name: "B00000000000000M", lowDmg: 30, highDmg: 40, description: "Here comes the....", img: "https://i.kym-cdn.com/photos/images/newsfeed/001/105/938/cf1.jpg")
+
+move12 = Move.create(name: "RITE ON!", lowDmg: 100, highDmg: 101, description: "Get Siced", img: "https://thechive.files.wordpress.com/2018/02/lead100.jpg?quality=85&strip=info")
 
 Monstermove.create(monster_id: 1, move_id: 2)
 Monstermove.create(monster_id: 1 ,move_id: 4)
-Monstermove.create(monster_id: 1, move_id: 6)
+Monstermove.create(monster_id: 1, move_id: 9)
 Monstermove.create(monster_id: 1, move_id: 8)
 
-Monstermove.create(monster_id: 2, move_id: 1)
-Monstermove.create(monster_id: 2, move_id: 3)
-Monstermove.create(monster_id: 2, move_id: 5)
-Monstermove.create(monster_id: 2, move_id: 7)
+Monstermove.create(monster_id: 2, move_id: 12)
+Monstermove.create(monster_id: 2, move_id: 11)
+Monstermove.create(monster_id: 2, move_id: 10)
+Monstermove.create(monster_id: 2, move_id: 9)
 
 Monstermove.create(monster_id: 3, move_id: 1)
 Monstermove.create(monster_id: 3, move_id: 8)
@@ -84,7 +94,7 @@ Monstermove.create(monster_id: 7, move_id: 8)
 Monstermove.create(monster_id: 8, move_id: 4)
 Monstermove.create(monster_id: 8, move_id: 1)
 Monstermove.create(monster_id: 8, move_id: 7)
-Monstermove.create(monster_id: 8, move_id: 8)
+Monstermove.create(monster_id: 8, move_id: 9)
 
 Monstermove.create(monster_id: 9,move_id: 1)
 Monstermove.create(monster_id: 9,move_id: 5)
@@ -100,3 +110,8 @@ Monstermove.create(monster_id: 11,move_id: 5)
 Monstermove.create(monster_id: 11,move_id: 6)
 Monstermove.create(monster_id: 11,move_id: 7)
 Monstermove.create(monster_id: 11,move_id: 8)
+
+Monstermove.create(monster_id: 12, move_id: 8)
+Monstermove.create(monster_id: 12, move_id: 10)
+Monstermove.create(monster_id: 12, move_id: 11)
+Monstermove.create(monster_id: 12, move_id: 12)

@@ -1,4 +1,39 @@
 .arena {
+  height: 700px;
+}
+
+#b-default {
   background-image: url('../img/backgrounds/default.png');
-  height: 500px;
+}
+
+#b-caves {
+  background-image: url('../img/backgrounds/caves.png');
+}
+
+#b-cityscape {
+  background-image: url('../img/backgrounds/cityscape.jpg');
+}
+
+#b-dusk-meadow {
+  background-image: url('../img/backgrounds/dusk-meadow.jpg');
+}
+
+#b-lava-temple {
+  background-image: url('../img/backgrounds/lava-temple.jpg');
+}
+
+#b-mountains {
+  background-image: url('../img/backgrounds/mountains.png');
+}
+
+#b-retro-mountains {
+  background-image: url('../img/backgrounds/retro-mountains.png');
+}
+
+#b-seaside-caves {
+  background-image: url('../img/backgrounds/seaside-caves.jpg');
+}
+
+#b-timezone-split {
+  background-image: url('../img/backgrounds/timezone-split.png');
 }

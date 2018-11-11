@@ -7,19 +7,25 @@ export default class Arena extends Component {
   constructor(props){
     super(props)
     this.state = {
-      playerMonser: [],
+      playerMonster: [],
+      enemyMonster: [],
       turnCount: 0,
       currentTurn: null,
-      background: this.props.background
+      background: ['b-caves', 'b-cityscape', 'b-default', 'b-dusk-meadow', 'b-lava-temple', 'b-mountains', 'b-retro-mountains', 'b-seaside-caves', 'b-timezone-split']
     }
   }
 
+  selectBackground = () => {
+    const len = this.state.background.length
+    const sample = Math.floor(Math.random() * len)
+    return this.state.background[sample]
+  }
 
 
 
   render() {
     return (
-      <div className='arena'>
+      <div className='arena' id={`${this.selectBackground()}`}>
         <Container fluid>
           <Grid celled>
 

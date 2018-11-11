@@ -23,11 +23,12 @@ class Game extends Component {
     // Invoke rails s -p 3001 in backend to run on correct port
     const adapter = new Adapter("http://localhost:3001")
 
-    adapter.getAll("/monsters").then(allMonsters => this.setState({monsters: allMonsters}))
-    adapter.getAll("/users").then(allUsers => this.setState({users: allUsers}))
+    // This promise with set state of loaded to true once all adapter method have been resolved
+    Promise.all([
+    adapter.getAll("/monsters").then(allMonsters => this.setState({monsters: allMonsters})),
+    adapter.getAll("/users").then(allUsers => this.setState({users: allUsers})),
     adapter.getAll("/moves").then(allMoves => this.setState({moves: allMoves}))
-    .then()
-    this.setState({loaded: true})
+  ]).then(this.setState({loaded: true}))
   }
 
   selectMonsterhandler = (monster) => {
@@ -37,8 +38,12 @@ class Game extends Component {
     })
   }
 
-  submitMonster = (event) => {
-    console.log(event)
+  useMove = (event) => {
+    console.log(`you used ${event.target.value.name}`)
+  }
+
+  calcDamage = (low, high) => {
+    return Math.round(Math.random() * (high - low) + low)
   }
 
   render() {

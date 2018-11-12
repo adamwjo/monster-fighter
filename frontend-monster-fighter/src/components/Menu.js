@@ -51,7 +51,6 @@ class Menu extends React.Component {
 
         <Grid.Row>
           {/* {this.props.moves.length === 0 ? null : <NewMonsterForm moves={this.props.moves}/> } */}
-
         </Grid.Row>
 
       </Grid>

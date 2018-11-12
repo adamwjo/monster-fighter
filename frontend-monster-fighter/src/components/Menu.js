@@ -45,7 +45,7 @@ class Menu extends React.Component {
             {this.props.selectedFighter === null ? null : <GameController  fighter={this.props.selectedFighter}/>}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={3}>
-            {this.props.enemies.map(monster => <MonsterCard onClick={() => {this.selectEnemy(monster)}} key={monster.id} monster={monster} />)}
+            {this.props.enemies.map(monster => <MonsterCard onClick={this.props.selectEnemy} key={monster.id} monster={monster} />)}
           </Grid.Column>
         </Grid.Row>
 

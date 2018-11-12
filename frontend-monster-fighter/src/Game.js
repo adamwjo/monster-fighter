@@ -39,6 +39,15 @@ class Game extends Component {
     })
   }
 
+  selectEnemy = (monster) => {
+    console.log(`you clicked monster ${monster.name}`, monster.moves)
+    this.setState({
+      selectedEnemey: monster
+    })
+  }
+
+
+
   useMove = (event) => {
     console.log(`you used ${event.target.value.name}`)
   }
@@ -61,8 +70,18 @@ class Game extends Component {
       return (
         <div className="Game">
           <Nav />
-          <Arena selectedFighter={this.state.selectedFighter} enemies={this.filterMonsters('enemy')} fighters={this.filterMonsters('fighter')} />
-          <Menu selectedFighter={this.state.selectedFighter} selectFighter={this.selectFighter} moves={this.state.moves} enemies={this.filterMonsters('enemy')} fighters={this.filterMonsters('fighter')}/>
+          <Arena
+            selectedEnemy={this.state.selectEnemy}
+            selectedFighter={this.state.selectedFighter}
+            enemies={this.filterMonsters('enemy')}
+            fighters={this.filterMonsters('fighter')} />
+          <Menu
+            selectedFighter={this.state.selectedFighter}
+            selectedEnemy={this.selectEnemy}
+            selectFighter={this.selectFighter}
+            moves={this.state.moves}
+            enemies={this.filterMonsters('enemy')}
+            fighters={this.filterMonsters('fighter')}/>
         </div>
       )
     }

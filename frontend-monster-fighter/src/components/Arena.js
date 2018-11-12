@@ -46,7 +46,7 @@ export default class Arena extends Component {
               </Grid.Column>
 
               <Grid.Column width={8} >
-                {this.props.enemyMonster === undefined ? null : <MonsterCard monster={this.state.enemyMonster}/>}
+                {/* {this.props.selectedEnemy === null ? null : <MonsterCard monster={this.props.selectedEnemy}/>} */}
 
               </Grid.Column>
             </Grid>

@@ -42,6 +42,7 @@ export default class Arena extends Component {
 
               <Grid.Column width={8} >
                 Player
+                {this.props.selectedFighter === null ? null : <MonsterCard monster={this.props.selectedFighter}/>}
               </Grid.Column>
 
               <Grid.Column width={8} >

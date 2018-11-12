@@ -7,7 +7,7 @@ export default class MonsterCard extends Component {
   render(){
     return(
 
-        <Card onClick={() => {this.props.selectMonster(this.props.monster)}}>
+        <Card onClick={() => {this.props.onClick(this.props.monster)}} >
           <Card.Content>
             <Image floated="right"  src={this.props.monster.img} />
             <Card.Header>{this.props.monster.name}</Card.Header>

@@ -8,16 +8,19 @@ import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 class Menu extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      selectedFighter: null
-    }
-
   }
 
-  selectMonsterhandler = (monster) => {
+  // selectMonster = (monster) => {
+  //   console.log(`you clicked monster ${monster.name}`, monster.moves)
+  //   this.setState({
+  //     selectedFighter: monster
+  //   })
+  // }
+
+  selectEnemy = (monster) => {
     console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
-      selectedFighter: monster
+      selectedEnemy: monster
     })
   }
 
@@ -36,18 +39,18 @@ class Menu extends React.Component {
 
         <Grid.Row>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={5}>
-            {this.props.fighters.map(monster => <MonsterCard selectMonster={this.selectMonsterhandler} key={monster.id} monster={monster}/>)}
+            {this.props.fighters.map(monster => <MonsterCard onClick={this.props.selectFighter} key={monster.id} monster={monster}/>)}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
-            {this.state.selectedFighter === null ? null : <GameController  fighter={this.state.selectedFighter}/>}
+            {this.props.selectedFighter === null ? null : <GameController  fighter={this.props.selectedFighter}/>}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={3}>
-            {this.props.enemies.map(monster => <MonsterCard selectMonster={()=>{}} key={monster.id} monster={monster} />)}
+            {this.props.enemies.map(monster => <MonsterCard onClick={() => {this.selectEnemy(monster)}} key={monster.id} monster={monster} />)}
           </Grid.Column>
         </Grid.Row>
 
         <Grid.Row>
-          {this.props.moves.length === 0 ? null : <NewMonsterForm moves={this.props.moves}/> }
+          {/* {this.props.moves.length === 0 ? null : <NewMonsterForm moves={this.props.moves}/> } */}
 
         </Grid.Row>
 

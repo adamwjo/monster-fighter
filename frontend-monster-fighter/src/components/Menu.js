@@ -8,6 +8,9 @@ import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 class Menu extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      turn: this.props.turn
+    }
   }
 
 
@@ -19,8 +22,11 @@ class Menu extends React.Component {
           <Grid.Column width={3}>
             Enemy Hp: {this.props.enemyHp}
           </Grid.Column>
-          <Grid.Column width={13}>
-            Current move being used
+          <Grid.Column width={3}>
+            Player Hp: {this.props.playerHp}
+          </Grid.Column>
+          <Grid.Column width={5}>
+            {this.state.turn === 2 ? this.enemyMove() : null}
           </Grid.Column>
         </Grid.Row>
 

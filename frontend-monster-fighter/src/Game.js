@@ -15,6 +15,7 @@ class Game extends Component {
       moves: [],
       monsters: [],
       enemyHp: 1,
+      playerHp: 1,
       loaded: false,
       selectedFighter: null,
       selectedEnemy: null
@@ -36,7 +37,15 @@ class Game extends Component {
 
   selectFighter = (monster) => {
     this.setState({
-      selectedFighter: monster
+      selectedFighter: monster,
+      playerHp: monster.hp
+
+    })
+  }
+
+  killPlayer = () => {
+    this.setState({
+      selectedFighter: null
     })
   }
 
@@ -53,14 +62,26 @@ class Game extends Component {
     })
   }
 
+  enemyMove = () => {
+    console.log("enemy used a move")
+
+    this.setState({
+      turn: 1,
+      playerHp: this.state.playerHp - 3
+    })
+  }
+
 
   useMove = (move) => {
     let damage = this.calcDamage(move.lowDmg, move.highDmg)
     let newVal = this.state.enemyHp - damage
-
-    this.setState({
-      enemyHp: newVal
-    })
+    if (this.state.turn === 1) {
+      this.setState({
+        enemyHp: newVal,
+        turn: 2
+      })
+      this.enemyMove()
+    }
   }
 
   calcDamage = (low, high) => {
@@ -89,11 +110,14 @@ class Game extends Component {
             enemies={this.filterMonsters('enemy')}
             fighters={this.filterMonsters('fighter')} />
           <Menu
+            enemyMove={this.enemyMove}
+            turn={this.state.turn}
             killEnemey={this.killEnemey}
             useMove={this.useMove}
             selectedFighter={this.state.selectedFighter}
             selectEnemy={this.selectEnemy}
             enemyHp={this.state.enemyHp}
+            playerHp={this.state.playerHp}
             selectFighter={this.selectFighter}
             moves={this.state.moves}
             enemies={this.filterMonsters('enemy')}

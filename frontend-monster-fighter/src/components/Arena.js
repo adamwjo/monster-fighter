@@ -53,16 +53,11 @@ export default class Arena extends Component {
 
                 {this.props.selectedFighter === null ? null : <MonsterCard size="large" monster={this.props.selectedFighter}/>}
 
-
               </Grid.Column>
 
               <Grid.Column >
                 
-
-                  {this.props.selectedEnemy === null ? null : <MonsterCard monster={this.props.selectedEnemy}/>}
-
-
-
+                {this.props.selectedEnemy === null ? null : <MonsterCard monster={this.props.selectedEnemy}/>}
               </Grid.Column>
             </Grid>
           </Container>

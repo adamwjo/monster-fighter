@@ -4,7 +4,7 @@ import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 const Move = (props) => {
   return(
-    <Item>
+    <Item onClick={() => {props.useMove(props.move)}}>
       <Item.Image src={props.move.img} />
 
       <Item.Content>

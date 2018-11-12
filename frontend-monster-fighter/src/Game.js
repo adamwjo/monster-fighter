@@ -10,9 +10,11 @@ class Game extends Component {
     super()
 
     this.state = {
+      turn: 1,
       users: [],
       moves: [],
       monsters: [],
+      enemyHp: 1,
       loaded: false,
       selectedFighter: null,
       selectedEnemy: null
@@ -33,23 +35,32 @@ class Game extends Component {
   }
 
   selectFighter = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
       selectedFighter: monster
     })
   }
 
   selectEnemy = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
-      selectedEnemey: monster
+      selectedEnemy: monster,
+      enemyHp: monster.hp
+    })
+  }
+
+  killEnemey = () => {
+    this.setState({
+      selectedEnemy: null
     })
   }
 
 
+  useMove = (move) => {
+    let damage = this.calcDamage(move.lowDmg, move.highDmg)
+    let newVal = this.state.enemyHp - damage
 
-  useMove = (event) => {
-    console.log(`you used ${event.target.value.name}`)
+    this.setState({
+      enemyHp: newVal
+    })
   }
 
   calcDamage = (low, high) => {
@@ -71,13 +82,18 @@ class Game extends Component {
         <div className="Game">
           <Nav />
           <Arena
-            selectedEnemy={this.state.selectEnemy}
+            killEnemey={this.killEnemey}
+            enemyHp={this.state.enemyHp}
+            selectedEnemy={this.state.selectedEnemy}
             selectedFighter={this.state.selectedFighter}
             enemies={this.filterMonsters('enemy')}
             fighters={this.filterMonsters('fighter')} />
           <Menu
+            killEnemey={this.killEnemey}
+            useMove={this.useMove}
             selectedFighter={this.state.selectedFighter}
-            selectedEnemy={this.selectEnemy}
+            selectEnemy={this.selectEnemy}
+            enemyHp={this.state.enemyHp}
             selectFighter={this.selectFighter}
             moves={this.state.moves}
             enemies={this.filterMonsters('enemy')}

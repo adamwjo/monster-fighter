@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react'
 import { Menu, Button, Header, Image, Form, Checkbox, Dropdown, Segment} from 'semantic-ui-react'
 
 export default class Nav extends Component {
@@ -11,16 +12,16 @@ export default class Nav extends Component {
 
     return (
       <Menu >
-        <Menu.Item
+        {/*<Menu.Item
           name='Start a Game'
-          active={activeItem === 'Start a Game'}
+          active={activeItem === 'Start a Match'}
           onClick={this.handleItemClick}
         >
-          Start a Game
+          <Link to="/start-match/"> Start a Game </Link>
         </Menu.Item>
 
         <Menu.Item active={activeItem === 'Create a Character'} onClick={this.handleItemClick}>
-          Create a Monster
+          <Link to="/create-monster/"> Create a Monster </Link>
         </Menu.Item>
 
         <Menu.Item
@@ -28,9 +29,9 @@ export default class Nav extends Component {
           active={activeItem === 'View Profile'}
           onClick={this.handleItemClick}
         >
-          View Profile
+          <Link to="/profile/"> View Profile</Link>
+        </Menu.Item>*/}
 
-        </Menu.Item>
       </Menu>
     )
   }

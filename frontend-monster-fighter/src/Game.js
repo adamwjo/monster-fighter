@@ -15,7 +15,9 @@ class Game extends Component {
       monsters: [],
       loaded: false,
       selectedFighter: null,
-      selectedEnemy: null
+      selectedEnemy: null,
+      // User will be a nested obj w/ keys user_id and username
+      // available at localStorage.getItem('user')
     }
   }
 
@@ -45,7 +47,6 @@ class Game extends Component {
       selectedEnemey: monster
     })
   }
-
 
 
   useMove = (event) => {

@@ -18,19 +18,27 @@ export default class Login extends Component {
   }
 
   submitForm = (event) => {
-    debugger
     event.preventDefault()
     const adapter = new Adapter('http://localhost:3001')
-    adapter.post('login', {user: {
-      username: this.state.username,
-      password: this.state.password
+    debugger
+    adapter.loginUser({
+      user: {
+        username: this.state.username,
+        password: this.state.password
       }
     })
     .then(json => {
-      if (true /* return value == user_id*/) {
-        // set localstorage to include user_id and open '/game'
+      if (json !== undefined) {
+        // add jwt, username, and user_id to user storage
+
+        // DOES LOCALSTORAGE RESET ON PAGE-RELOAD?
+        localStorage.setItem('jwt', json['jwt'])
+        localStorage.setItem('currentUser', json['user'])
+        debugger
+        // redirect to '/game'
+        window.location.href = 'http://localhost:3000/game'
       } else {
-        // Post message about incorrect creds
+        alert('CRITICAL LOGIN FAILURE!')
       }
     })
   }

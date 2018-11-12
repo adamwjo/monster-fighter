@@ -12,11 +12,32 @@ export default class Adapter {
     return fetch(`${this.BASE_URL}/${endpoint}`, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify(body)
     })
       .then(res => res.json())
   }
+
+  loginUser(body) {
+    return fetch(`${this.BASE_URL}/login`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw res
+        }
+      })
+    }
+  // Will need to refactor all fetches to user-specific resources to include this authorization header
+
   // End of Adapter class
 }

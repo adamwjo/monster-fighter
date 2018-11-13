@@ -3,7 +3,6 @@ class MonstersController < ApplicationController
     @monsters = Monster.all.includes(:moves, :user)
     render(
       json: @monsters,
-      each_serializer: MonsterSerializer
     )
   end
 

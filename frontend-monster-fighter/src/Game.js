@@ -10,14 +10,16 @@ class Game extends Component {
     super()
 
     this.state = {
+      turn: 1,
       users: [],
       moves: [],
       monsters: [],
+      enemyHp: 1,
+      playerHp: 1,
       loaded: false,
       selectedFighter: null,
-      selectedEnemy: null
-      // User will be a nested obj w/ keys user_id and username
-      // available at localStorage.getItem('user')
+      selectedEnemy: null,
+      attackMessage: null
     }
   }
 
@@ -35,22 +37,54 @@ class Game extends Component {
   }
 
   selectFighter = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
-      selectedFighter: monster
+      selectedFighter: monster,
+      playerHp: monster.hp
+
+    })
+  }
+
+  killPlayer = () => {
+    this.setState({
+      selectedFighter: null
     })
   }
 
   selectEnemy = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
     this.setState({
-      selectedEnemey: monster
+      selectedEnemy: monster,
+      enemyHp: monster.hp
     })
   }
 
+  killEnemey = () => {
+    this.setState({
+      selectedEnemy: null
+    })
+  }
 
-  useMove = (event) => {
-    console.log(`you used ${event.target.value.name}`)
+  enemyMove = () => {
+    console.log("enemy used a move")
+    setTimeout( () => {
+      alert("enemy attaced your ass")
+      this.setState({
+      turn: 1,
+      playerHp: this.state.playerHp - 3
+    })}, 2000)
+  }
+
+
+  useMove = (move) => {
+    let damage = this.calcDamage(move.lowDmg, move.highDmg)
+    let newVal = this.state.enemyHp - damage
+    if (this.state.turn === 1) {
+      this.setState({
+        enemyHp: newVal,
+        turn: 2,
+        attackMessage: "enemy attacked your ass"
+      })
+      this.enemyMove()
+    }
   }
 
   calcDamage = (low, high) => {
@@ -72,13 +106,22 @@ class Game extends Component {
         <div className="Game">
           <Nav />
           <Arena
-            selectedEnemy={this.state.selectEnemy}
+            killEnemey={this.killEnemey}
+            enemyHp={this.state.enemyHp}
+            selectedEnemy={this.state.selectedEnemy}
             selectedFighter={this.state.selectedFighter}
             enemies={this.filterMonsters('enemy')}
             fighters={this.filterMonsters('fighter')} />
           <Menu
+            attackMessage={this.state.attackMessage}
+            enemyMove={this.enemyMove}
+            turn={this.state.turn}
+            killEnemey={this.killEnemey}
+            useMove={this.useMove}
             selectedFighter={this.state.selectedFighter}
-            selectedEnemy={this.selectEnemy}
+            selectEnemy={this.selectEnemy}
+            enemyHp={this.state.enemyHp}
+            playerHp={this.state.playerHp}
             selectFighter={this.selectFighter}
             moves={this.state.moves}
             enemies={this.filterMonsters('enemy')}

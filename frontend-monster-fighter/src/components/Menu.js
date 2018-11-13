@@ -8,21 +8,11 @@ import {Container, Grid, Card, Image, Segment} from 'semantic-ui-react'
 class Menu extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      turn: this.props.turn
+    }
   }
 
-  // selectMonster = (monster) => {
-  //   console.log(`you clicked monster ${monster.name}`, monster.moves)
-  //   this.setState({
-  //     selectedFighter: monster
-  //   })
-  // }
-
-  selectEnemy = (monster) => {
-    console.log(`you clicked monster ${monster.name}`, monster.moves)
-    this.setState({
-      selectedEnemy: monster
-    })
-  }
 
 
   render(){
@@ -30,22 +20,33 @@ class Menu extends React.Component {
       <Grid celled>
         <Grid.Row>
           <Grid.Column width={3}>
-            Monster Hp
+            Enemy Hp: {this.props.enemyHp}
           </Grid.Column>
-          <Grid.Column width={13}>
-            Current move being used
+          <Grid.Column width={3}>
+            Player Hp: {this.props.playerHp}
+          </Grid.Column>
+          <Grid.Column width={5}>
+            {this.props.turn === 2 ? this.props.message : null}
           </Grid.Column>
         </Grid.Row>
 
         <Grid.Row>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={5}>
-            {this.props.fighters.map(monster => <MonsterCard onClick={this.props.selectFighter} key={monster.id} monster={monster}/>)}
+            {this.props.fighters.map(monster => <MonsterCard onClick={this.props.selectFighter}
+              key={monster.id}
+              monster={monster}/>)}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={8}>
-            {this.props.selectedFighter === null ? null : <GameController  fighter={this.props.selectedFighter}/>}
+            {this.props.selectedFighter === null ? null : <GameController
+              useMove={this.props.useMove}
+              fighter={this.props.selectedFighter}/>}
           </Grid.Column>
           <Grid.Column style={{overflow: 'auto', maxHeight: 200 }} width={3}>
-            {this.props.enemies.map(monster => <MonsterCard onClick={this.props.selectEnemy} key={monster.id} monster={monster} />)}
+            {this.props.enemies.map(monster => <MonsterCard
+              onClick={this.props.selectEnemy}
+              key={monster.id}
+              enemyHp={this.props.enemyHp}
+              monster={monster} />)}
           </Grid.Column>
         </Grid.Row>
 

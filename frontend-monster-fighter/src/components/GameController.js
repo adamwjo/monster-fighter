@@ -20,9 +20,9 @@ class GameController extends Component {
       <Grid>
         <Grid.Column stretched width={12}>
           <Segment>
-            {this.state.activeItem === 'Moves'? <MovesMenu moves={this.props.fighter.moves}/> : null}
+            {this.state.activeItem === 'Moves'? <MovesMenu useMove={this.props.useMove} moves={this.props.fighter.moves}/> : null}
             {this.state.activeItem === 'Stats'? <StatsMenu fighter={this.props.fighter} /> : null }
-  
+
           </Segment>
         </Grid.Column>
 

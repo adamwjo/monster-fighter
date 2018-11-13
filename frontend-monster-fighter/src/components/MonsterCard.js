@@ -7,7 +7,7 @@ export default class MonsterCard extends Component {
   render(){
     return(
 
-        <Card onClick={() => {this.props.onClick(this.props.monster)}} >
+        <Card fluid color='green' onClick={() => {this.props.onClick(this.props.monster)}} >
           <Card.Content>
             <Image floated="right"  src={this.props.monster.img} />
             <Card.Header>{this.props.monster.name}</Card.Header>
@@ -15,10 +15,10 @@ export default class MonsterCard extends Component {
             <Card.Description>{this.props.monster.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
-              <Icon name='bug' />
-              10 wins
-            </a>
+
+            <Icon name='heart' />
+            {this.props.monster.hp}
+
           </Card.Content>
         </Card>
       )

@@ -9,7 +9,7 @@ class MovesMenu extends React.Component {
   render(){
     return(
       <Item.Group>
-        {this.props.moves.map(move => <Move move={move} key={move.id}/>)}
+        {this.props.moves.map(move => <Move useMove={this.props.useMove} move={move} key={move.id}/>)}
       </Item.Group>
     )
   }

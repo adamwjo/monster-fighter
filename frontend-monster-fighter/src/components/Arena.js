@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Container, Header, Grid} from 'semantic-ui-react'
+import {Container, Header, Grid, Segment} from 'semantic-ui-react'
 import MonsterCard from './MonsterCard'
 import '../css/Arena.css'
 
@@ -7,8 +7,7 @@ export default class Arena extends Component {
   constructor(props){
     super(props)
     this.state = {
-      playerMonster: null,
-      enemyMonster: null,
+      enemyHp: null,
       turnCount: 0,
       currentTurn: null,
       loaded: false,
@@ -17,7 +16,6 @@ export default class Arena extends Component {
   }
 
   componentDidMount() {
-    this.selectEnemy()
     this.setState({loaded: true})
   }
 
@@ -33,21 +31,33 @@ export default class Arena extends Component {
     this.setState({enemyMonster: this.props.enemies[sample]})
   }
 
+  componentDidUpdate(){
+    if (this.props.enemyHp < 0) {
+      if (this.props.selectedEnemy === null) {
+        return console.log("enemy is dead");
+      }
+      else {
+        this.props.killEnemey()
+      }
+    }
+  }
+
   render() {
     if (this.state.loaded === true) {
       return (
         <div className='arena' id={`${this.selectBackground()}`}>
           <Container fluid>
-            <Grid celled>
+            <Grid container columns={2}>
 
-              <Grid.Column width={8} >
-                Player
-                {this.props.selectedFighter === null ? null : <MonsterCard monster={this.props.selectedFighter}/>}
+              <Grid.Column >
+
+                {this.props.selectedFighter === null ? null : <MonsterCard size="large" monster={this.props.selectedFighter}/>}
+
               </Grid.Column>
 
-              <Grid.Column width={8} >
-                {/* {this.props.selectedEnemy === null ? null : <MonsterCard monster={this.props.selectedEnemy}/>} */}
-
+              <Grid.Column >
+                
+                {this.props.selectedEnemy === null ? null : <MonsterCard monster={this.props.selectedEnemy}/>}
               </Grid.Column>
             </Grid>
           </Container>

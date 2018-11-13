@@ -4,7 +4,14 @@ export default class Adapter {
   }
 
   getAll(endpoint) {
-    return fetch(`${this.BASE_URL}/${endpoint}`)
+    return fetch(`${this.BASE_URL}/${endpoint}`, {
+      method: "GET",
+      headers: {
+        'Authorization': window.localStorage.getItem('jwt'),
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
       .then(res => res.json())
   }
 
@@ -12,6 +19,7 @@ export default class Adapter {
     return fetch(`${this.BASE_URL}/${endpoint}`, {
       method: "POST",
       headers: {
+        'Authorization': window.localStorage.getItem('jwt'),
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },

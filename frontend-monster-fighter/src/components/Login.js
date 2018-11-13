@@ -20,7 +20,6 @@ export default class Login extends Component {
   submitForm = (event) => {
     event.preventDefault()
     const adapter = new Adapter('http://localhost:3001')
-    debugger
     adapter.loginUser({
       user: {
         username: this.state.username,
@@ -32,9 +31,8 @@ export default class Login extends Component {
         // add jwt, username, and user_id to user storage
 
         // DOES LOCALSTORAGE RESET ON PAGE-RELOAD?
-        localStorage.setItem('jwt', json['jwt'])
-        localStorage.setItem('currentUser', json['user'])
-        debugger
+        window.localStorage.setItem('jwt', json['jwt'])
+        window.localStorage.setItem('currentUser', json['user'])
         // redirect to '/game'
         window.location.href = 'http://localhost:3000/game'
       } else {

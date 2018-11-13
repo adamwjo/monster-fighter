@@ -15,7 +15,7 @@ class Game extends Component {
       monsters: [],
       loaded: false,
       selectedFighter: null,
-      selectedEnemy: null,
+      selectedEnemy: null
       // User will be a nested obj w/ keys user_id and username
       // available at localStorage.getItem('user')
     }
@@ -25,13 +25,13 @@ class Game extends Component {
     // The working hostname is passed here, will change by port
     // Invoke rails s -p 3001 in backend to run on correct port
     const adapter = new Adapter("http://localhost:3001")
-
     // This promise with set state of loaded to true once all adapter method have been resolved
     Promise.all([
-    adapter.getAll("/monsters").then(allMonsters => this.setState({monsters: allMonsters})),
-    adapter.getAll("/users").then(allUsers => this.setState({users: allUsers})),
-    adapter.getAll("/moves").then(allMoves => this.setState({moves: allMoves}))
-  ]).then(this.setState({loaded: true}))
+      adapter.getAll("monsters").then(allMonsters => this.setState({monsters: allMonsters})),
+      adapter.getAll("users").then(allUsers => this.setState({users: allUsers})),
+      adapter.getAll("moves").then(allMoves => this.setState({moves: allMoves}))
+    ])
+    .then(this.setState({loaded: true}))
   }
 
   selectFighter = (monster) => {

@@ -17,9 +17,9 @@ class ApplicationController < ActionController::API
   # Decodes Auth header token if valid, returns error nil if invalid
   def decoded_token
     if auth_header
-      token = auth_header.split(' ')[1]
+      # Removed token = auth_header.split(' ')[1] here
       begin
-        JWT.decode(token, ENV["SECRET"], true, algorithm: 'HS256')
+        JWT.decode(auth_header, ENV["SECRET"], true, algorithm: 'HS256')
       rescue JWT::DecodeError
         nil
       end

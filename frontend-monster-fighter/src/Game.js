@@ -18,7 +18,8 @@ class Game extends Component {
       playerHp: 1,
       loaded: false,
       selectedFighter: null,
-      selectedEnemy: null
+      selectedEnemy: null,
+      attackMessage: null
     }
   }
 
@@ -64,11 +65,12 @@ class Game extends Component {
 
   enemyMove = () => {
     console.log("enemy used a move")
-
-    this.setState({
+    setTimeout( () => {
+      alert("enemy attaced your ass")
+      this.setState({
       turn: 1,
       playerHp: this.state.playerHp - 3
-    })
+    })}, 2000)
   }
 
 
@@ -78,7 +80,8 @@ class Game extends Component {
     if (this.state.turn === 1) {
       this.setState({
         enemyHp: newVal,
-        turn: 2
+        turn: 2,
+        attackMessage: "enemy attacked your ass"
       })
       this.enemyMove()
     }
@@ -110,6 +113,7 @@ class Game extends Component {
             enemies={this.filterMonsters('enemy')}
             fighters={this.filterMonsters('fighter')} />
           <Menu
+            attackMessage={this.state.attackMessage}
             enemyMove={this.enemyMove}
             turn={this.state.turn}
             killEnemey={this.killEnemey}

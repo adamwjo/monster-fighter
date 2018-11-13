@@ -26,7 +26,7 @@ class Menu extends React.Component {
             Player Hp: {this.props.playerHp}
           </Grid.Column>
           <Grid.Column width={5}>
-            {this.state.turn === 2 ? this.enemyMove() : null}
+            {this.props.turn === 2 ? this.props.message : null}
           </Grid.Column>
         </Grid.Row>
 
